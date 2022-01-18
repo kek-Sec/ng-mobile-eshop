@@ -10,6 +10,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HeaderComponent } from './nav/header/header.component';
 import { FooterComponent } from './nav/footer/footer.component';
 import { ContactComponent } from './views/contact/contact.component';
+import { OrdersComponent } from './views/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContactComponent } from './views/contact/contact.component';
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

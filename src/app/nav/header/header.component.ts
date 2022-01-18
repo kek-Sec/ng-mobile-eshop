@@ -23,7 +23,7 @@ import { Component, OnInit } from '@angular/core';
             <a class="nav-link" routerLink="auth/login" href="#">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">My Orders</a>
+            <a class="nav-link" routerLink="orders" href="#">My Orders</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Store</a>
