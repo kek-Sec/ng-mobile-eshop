@@ -29,7 +29,7 @@ import { Component, OnInit } from '@angular/core';
             <a class="nav-link" href="#">Store</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" routerLink="contact" href="#">Contact</a>
           </li>
           <!--add logout-->
         </ul>
