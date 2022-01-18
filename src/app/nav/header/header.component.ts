@@ -13,12 +13,25 @@ import { Component, OnInit } from '@angular/core';
       <div class="collapse navbar-collapse" [ngClass]="{ show: navbarOpen }">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Item 1</a>
+            <a class="nav-link" href="#">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Item 2</a>
+            <a class="nav-link" routerLink="auth/register" href="#">Register</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="auth/login" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Store</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <!--add logout-->
         </ul>
       </div>
     </nav>
