@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'nav-header',
@@ -31,7 +32,9 @@ import { Component, OnInit } from '@angular/core';
           <li class="nav-item">
             <a class="nav-link" routerLink="contact" href="#">Contact</a>
           </li>
-          <!--add logout-->
+          <li *ngIf="logged_in" class="nav-item">
+            <a class="nav-link" (click)="logout()" href="#">Log out</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -40,12 +43,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   navbarOpen = false;
+  logged_in: boolean = false;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() { }
+
+
+  logout() {
+    AppComponent.logged_in = false;
+    this.logged_in = false;
+  }
+
+  ngOnInit(): void {
+    //check every second if the user is logged in
+    setInterval(() => {
+      if (AppComponent.logged_in) {
+        this.logged_in = true;
+      }
+    }, 1000);
+  }
 }

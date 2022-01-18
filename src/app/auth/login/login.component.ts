@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { AppComponent } from 'src/app/app.component';
 
 /**
  * Login page component.
@@ -42,7 +43,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
                   name="pwd"
                 />
               </div>
-              <button  (click)="openModal(template)" type="submit" class="btn btn-default custom-btn">
+              <button  (click)="openModal(template);login()" type="submit" class="btn btn-default custom-btn">
                 Submit
               </button>
             </form>
@@ -144,6 +145,6 @@ export class LoginComponent implements OnInit {
    * calls the /api/v1/login endpoint with the user model as body
    */
   login() {
-   
+    AppComponent.logged_in = true;
   }
 }
