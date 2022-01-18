@@ -11,6 +11,7 @@ import { HeaderComponent } from './nav/header/header.component';
 import { FooterComponent } from './nav/footer/footer.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { OrdersComponent } from './views/orders/orders.component';
+import { StoreComponent } from './views/store/store.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { OrdersComponent } from './views/orders/orders.component';
     HeaderComponent,
     FooterComponent,
     ContactComponent,
-    OrdersComponent
+    OrdersComponent,
+    StoreComponent
   ],
   imports: [
     CommonModule,
