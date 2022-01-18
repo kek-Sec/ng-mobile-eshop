@@ -34,10 +34,12 @@ const routes: Routes = [
   },
   {
     path: '',
+    pathMatch: 'full',
     redirectTo: '/store',
   },
   {
     path: '**',
+    pathMatch: 'full',
     redirectTo: '/store',
   }
 ];
