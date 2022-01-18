@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AdminComponent } from './views/admin/admin.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { StoreComponent } from './views/store/store.component';
@@ -26,6 +27,18 @@ const routes: Routes = [
   {
     path: 'store',
     component: StoreComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: '',
+    redirectTo: '/store',
+  },
+  {
+    path: '**',
+    redirectTo: '/store',
   }
 ];
 
