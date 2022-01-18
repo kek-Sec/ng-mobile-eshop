@@ -21,6 +21,7 @@ import { Component, OnInit } from '@angular/core';
             <form action="/action_page.php">
               <div class="form-group">
                 <input
+                  [(ngModel)]="user.email"
                   style="margin-bottom:0.5vh;"
                   type="email"
                   class="form-control"
@@ -31,6 +32,7 @@ import { Component, OnInit } from '@angular/core';
               </div>
               <div class="form-group">
                 <input
+                  [(ngModel)]="user.password"
                   style="margin-bottom:1.5vh;"
                   type="password"
                   class="form-control"
@@ -113,4 +115,10 @@ export class LoginComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  //create user model
+  user = {
+    email: '',
+    password: '',
+  }
 }
