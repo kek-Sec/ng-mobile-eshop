@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-store',
@@ -8,6 +9,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
       <ng-container *ngFor="let product of products">
         <slide>
           <img
+            (click)="openModal(template)"
             src="{{ product.photoURL }}"
             alt="Model: {{ product.model }}"
             style="width:50vh"
@@ -22,6 +24,17 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
         </slide>
       </ng-container>
     </carousel>
+     <ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   {{products | json}}
+  </div>
+</ng-template>
   `,
   styles: [],
 })
@@ -31,13 +44,14 @@ export class StoreComponent implements OnInit {
   //productid, price, quantity, photoURL, model (π.χ. Xiaomi Mi11), screenSize, CPU, RAM,camera, battery, SAR
 
   //create foo data
-  products:any;
-
+  products: any;
+  modalRef?: BsModalRef;
 
   constructor(
-    private http:HttpClient, //http client for interacting with the API
-    private cdr:ChangeDetectorRef //to refresh view
-    ) {
+    private http: HttpClient, //http client for interacting with the API
+    private cdr: ChangeDetectorRef, //to refresh view
+    private modalService: BsModalService
+  ) {
 
   }
 
@@ -59,5 +73,8 @@ export class StoreComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }
