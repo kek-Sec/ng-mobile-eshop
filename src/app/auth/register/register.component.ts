@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-register',
@@ -112,7 +113,7 @@ import { Component, OnInit } from '@angular/core';
                     required
                   />
                 </div>
-                <button type="submit" class="btn btn-default custom-btn">
+                <button type="submit" (click)="openModal(template)" class="btn btn-default custom-btn">
                   Submit
                 </button>
               </form>
@@ -121,6 +122,17 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
     </section>
+     <ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   {{user | json}}
+  </div>
+</ng-template>
   `,
   styles: [
     `
@@ -186,7 +198,12 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  modalRef?: BsModalRef;
+  constructor(private modalService: BsModalService) { }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
   ngOnInit(): void {}
 
@@ -202,4 +219,8 @@ export class RegisterComponent implements OnInit {
     postalCode: '',
     mobilePhone: '',
   };
+
+  register(){
+
+  }
 }
