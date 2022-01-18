@@ -13,57 +13,36 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-login',
   template: `
     <!-- Main Content -->
-    <div class="container-fluid">
-      <div class="row main-content bg-success text-center">
-        <div class="col-md-4 text-center company__info">
-          <span class="company__logo"
-            ><h2><span class="fa fa-android"></span></h2
-          ></span>
-          <h4 class="company_title">Your Company Logo</h4>
-        </div>
-        <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-          <div class="container-fluid">
-            <div class="row">
-              <h2>Log In</h2>
-            </div>
-            <div class="row">
-              <form control="" class="form-group">
-                <div class="row">
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    class="form__input"
-                    placeholder="Username"
-                  />
-                </div>
-                <div class="row">
-                  <!-- <span class="fa fa-lock"></span> -->
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form__input"
-                    placeholder="Password"
-                  />
-                </div>
-                <div class="row">
-                  <input
-                    type="checkbox"
-                    name="remember_me"
-                    id="remember_me"
-                    class=""
-                  />
-                  <label for="remember_me">Remember Me!</label>
-                </div>
-                <div class="row">
-                  <input type="submit" value="Submit" class="btn" />
-                </div>
-              </form>
-            </div>
-            <div class="row">
-              <p>Don't have an account? <a href="#">Register Here</a></p>
-            </div>
+    <div class="wrapper" style="display:flex;justify-content:center;margin-top:5vh">
+      <div class="col-md-5">
+        <div class="form-block">
+          <h2>Login</h2>
+          <div class="form">
+            <form action="/action_page.php">
+              <div class="form-group">
+                <input
+                  style="margin-bottom:0.5vh;"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter email"
+                  name="email"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  style="margin-bottom:1.5vh;"
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter password"
+                  name="pwd"
+                />
+              </div>
+              <button type="submit" class="btn btn-default custom-btn">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -71,86 +50,61 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: [
     `
-      .main-content {
-        width: 50%;
-        border-radius: 20px;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
-        margin: 5em auto;
-        display: flex;
+      .header-content {
+        padding: 50px 0;
       }
-      .company__info {
-        background-color: #008080;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-      }
-      .fa-android {
-        font-size: 3em;
-      }
-      @media screen and (max-width: 640px) {
-        .main-content {
-          width: 90%;
-        }
-        .company__info {
-          display: none;
-        }
-        .login_form {
-          border-top-left-radius: 20px;
-          border-bottom-left-radius: 20px;
-        }
-      }
-      @media screen and (min-width: 642px) and (max-width: 800px) {
-        .main-content {
-          width: 70%;
-        }
-      }
-      .row > h2 {
-        color: #008080;
-      }
-      .login_form {
-        background-color: #fff;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        border-top: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-      }
-      form {
-        padding: 0 2em;
-      }
-      .form__input {
-        width: 100%;
-        border: 0px solid transparent;
-        border-radius: 0;
-        border-bottom: 1px solid #aaa;
-        padding: 1em 0.5em 0.5em;
-        padding-left: 2em;
-        outline: none;
-        margin: 1.5em auto;
-        transition: all 0.5s ease;
-      }
-      .form__input:focus {
-        border-bottom-color: #008080;
-        box-shadow: 0 0 5px rgba(0, 80, 80, 0.4);
-        border-radius: 4px;
-      }
-      .btn {
-        transition: all 0.5s ease;
-        width: 70%;
-        border-radius: 30px;
-        color: #008080;
+      .header-title {
+        color: #88c724;
+        display: block;
+        font-size: 48px;
         font-weight: 600;
-        background-color: #fff;
-        border: 1px solid #008080;
-        margin-top: 1.5em;
-        margin-bottom: 1em;
+        line-height: 50px;
+        text-transform: uppercase;
       }
-      .btn:hover,
-      .btn:focus {
-        background-color: #008080;
+      .header-motto {
+        color: #88c724;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+      }
+      .form-block {
+        background: #f9f9f9 none repeat scroll 0 0;
+        border-radius: 1px;
+        box-shadow: 2px 3px 8px #a7a7a7;
+        color: gray;
+        display: block;
+        min-height: 250px;
+        overflow: hidden;
+        padding: 30px;
+      }
+      .form-block h2 {
+        border-bottom: 1px solid #88c724;
+        color: #88c724;
+        display: block;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 28px;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+      }
+      .form .form-control {
+        border-radius: 0;
+        color: #999;
+        height: 42px;
+      }
+      .form-control:focus {
+        border-color: #88c724;
+        box-shadow: none;
+      }
+      .custom-btn:hover,
+      .custom-btn {
+        background-color: #88c724;
+        border-color: #88c724;
         color: #fff;
+        font-size: 20px;
+        height: 40px;
+        width: 100%;
+        font-weight: 500;
       }
     `,
   ],

@@ -2,755 +2,173 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register',
-  template: `<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-    <div class="wrapper wrapper--w680">
-      <div class="card card-4">
-        <div class="card-body">
-          <h2 class="title">Registration Form</h2>
-          <form method="POST">
-            <div class="row row-space">
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">first name</label>
-                  <input class="input--style-4" type="text" name="first_name" />
+  template: `
+    <section clas="main-container">
+      <div style="display:flex; justify-content:center;margin-top:5vh" class="row">
+        <div class="col-md-7">
+          <div class="form-block">
+            <h2>Register</h2>
+            <div class="form">
+              <form action="/action_page.php">
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter First Name"
+                    name="first-name"
+                    required
+                  />
                 </div>
-              </div>
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">last name</label>
-                  <input class="input--style-4" type="text" name="last_name" />
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Last Name"
+                    name="last-name"
+                    required
+                  />
                 </div>
-              </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+                    name="password"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter Repeat Password"
+                    name="repeat-password"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Address"
+                    name="address"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter City"
+                    name="city"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 0.5vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Postal code"
+                    name="postalcode"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    style="margin-bottom: 1vh;"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Mobile phone"
+                    name="mobilephone"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-default custom-btn">
+                  Submit
+                </button>
+              </form>
             </div>
-            <div class="row row-space">
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">Birthday</label>
-                  <div class="input-group-icon">
-                    <input
-                      class="input--style-4 js-datepicker"
-                      type="text"
-                      name="birthday"
-                    />
-                    <i
-                      class="zmdi zmdi-calendar-note input-icon js-btn-calendar"
-                    ></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">Gender</label>
-                  <div class="p-t-10">
-                    <label class="radio-container m-r-45"
-                      >Male
-                      <input type="radio" checked="checked" name="gender" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="radio-container"
-                      >Female
-                      <input type="radio" name="gender" />
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row row-space">
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">Email</label>
-                  <input class="input--style-4" type="email" name="email" />
-                </div>
-              </div>
-              <div class="col-2">
-                <div class="input-group">
-                  <label class="label">Phone Number</label>
-                  <input class="input--style-4" type="text" name="phone" />
-                </div>
-              </div>
-            </div>
-
-            <div class="p-t-15">
-              <button class="btn btn--radius-2 btn--blue" type="submit">
-                Submit
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-  </div>`,
+    </section>
+  `,
   styles: [
     `
-      /* ==========================================================================
-   #FONT
-   ========================================================================== */
-      .font-robo {
-        font-family: 'Roboto', 'Arial', 'Helvetica Neue', sans-serif;
+      /*============== sticky-wrapper =============**/
+      .header-content {
+        padding: 50px 0;
       }
-
-      .font-poppins {
-        font-family: 'Poppins', 'Arial', 'Helvetica Neue', sans-serif;
-      }
-
-      /* ==========================================================================
-   #GRID
-   ========================================================================== */
-      .row {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-      }
-
-      .row-space {
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -moz-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-      }
-
-      .col-2 {
-        width: -webkit-calc((100% - 30px) / 2);
-        width: -moz-calc((100% - 30px) / 2);
-        width: calc((100% - 30px) / 2);
-      }
-
-      @media (max-width: 767px) {
-        .col-2 {
-          width: 100%;
-        }
-      }
-
-      html {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-
-      * {
-        padding: 0;
-        margin: 0;
-      }
-
-      *,
-      *:before,
-      *:after {
-        -webkit-box-sizing: inherit;
-        -moz-box-sizing: inherit;
-        box-sizing: inherit;
-      }
-
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      blockquote,
-      p,
-      pre,
-      dl,
-      dd,
-      ol,
-      ul,
-      figure,
-      hr,
-      fieldset,
-      legend {
-        margin: 0;
-        padding: 0;
-      }
-
-      /**
- * Remove trailing margins from nested lists.
- */
-      li > ol,
-      li > ul {
-        margin-bottom: 0;
-      }
-
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-
-      fieldset {
-        min-width: 0;
-        /* [1] */
-        border: 0;
-      }
-
-      button {
-        outline: none;
-        background: none;
-        border: none;
-      }
-
-      /* ==========================================================================
-   #PAGE WRAPPER
-   ========================================================================== */
-      .page-wrapper {
-        min-height: 100vh;
-      }
-
-      body {
-        font-family: 'Poppins', 'Arial', 'Helvetica Neue', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-weight: 400;
-      }
-
-      h1 {
-        font-size: 36px;
-      }
-
-      h2 {
-        font-size: 30px;
-      }
-
-      h3 {
-        font-size: 24px;
-      }
-
-      h4 {
-        font-size: 18px;
-      }
-
-      h5 {
-        font-size: 15px;
-      }
-
-      h6 {
-        font-size: 13px;
-      }
-
-      /* ==========================================================================
-   #BACKGROUND
-   ========================================================================== */
-      .bg-blue {
-        background: #2c6ed5;
-      }
-
-      .bg-red {
-        background: #fa4251;
-      }
-
-      .bg-gra-01 {
-        background: -webkit-gradient(
-          linear,
-          left bottom,
-          left top,
-          from(#fbc2eb),
-          to(#a18cd1)
-        );
-        background: -webkit-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-        background: -moz-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-        background: -o-linear-gradient(bottom, #fbc2eb 0%, #a18cd1 100%);
-        background: linear-gradient(to top, #fbc2eb 0%, #a18cd1 100%);
-      }
-
-      .bg-gra-02 {
-        background: -webkit-gradient(
-          linear,
-          left bottom,
-          right top,
-          from(#fc2c77),
-          to(#6c4079)
-        );
-        background: -webkit-linear-gradient(
-          bottom left,
-          #fc2c77 0%,
-          #6c4079 100%
-        );
-        background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-        background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-        background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
-      }
-
-      /* ==========================================================================
-   #SPACING
-   ========================================================================== */
-      .p-t-100 {
-        padding-top: 100px;
-      }
-
-      .p-t-130 {
-        padding-top: 130px;
-      }
-
-      .p-t-180 {
-        padding-top: 180px;
-      }
-
-      .p-t-20 {
-        padding-top: 20px;
-      }
-
-      .p-t-15 {
-        padding-top: 15px;
-      }
-
-      .p-t-10 {
-        padding-top: 10px;
-      }
-
-      .p-t-30 {
-        padding-top: 30px;
-      }
-
-      .p-b-100 {
-        padding-bottom: 100px;
-      }
-
-      .m-r-45 {
-        margin-right: 45px;
-      }
-
-      /* ==========================================================================
-   #WRAPPER
-   ========================================================================== */
-      .wrapper {
-        margin: 0 auto;
-      }
-
-      .wrapper--w960 {
-        max-width: 960px;
-      }
-
-      .wrapper--w780 {
-        max-width: 780px;
-      }
-
-      .wrapper--w680 {
-        max-width: 680px;
-      }
-
-      /* ==========================================================================
-   #BUTTON
-   ========================================================================== */
-      .btn {
-        display: inline-block;
-        line-height: 50px;
-        padding: 0 50px;
-        -webkit-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-        cursor: pointer;
-        font-size: 18px;
-        color: #fff;
-        font-family: 'Poppins', 'Arial', 'Helvetica Neue', sans-serif;
-      }
-
-      .btn--radius {
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-      }
-
-      .btn--radius-2 {
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-      }
-
-      .btn--pill {
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        border-radius: 20px;
-      }
-
-      .btn--green {
-        background: #57b846;
-      }
-
-      .btn--green:hover {
-        background: #4dae3c;
-      }
-
-      .btn--blue {
-        background: #4272d7;
-      }
-
-      .btn--blue:hover {
-        background: #3868cd;
-      }
-
-      /* ==========================================================================
-   #DATE PICKER
-   ========================================================================== */
-      td.active {
-        background-color: #2c6ed5;
-      }
-
-      input[type='date' i] {
-        padding: 14px;
-      }
-
-      .table-condensed td,
-      .table-condensed th {
-        font-size: 14px;
-        font-family: 'Roboto', 'Arial', 'Helvetica Neue', sans-serif;
-        font-weight: 400;
-      }
-
-      .daterangepicker td {
-        width: 40px;
-        height: 30px;
-      }
-
-      .daterangepicker {
-        border: none;
-        -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        display: none;
-        border: 1px solid #e0e0e0;
-        margin-top: 5px;
-      }
-
-      .daterangepicker::after,
-      .daterangepicker::before {
-        display: none;
-      }
-
-      .daterangepicker thead tr th {
-        padding: 10px 0;
-      }
-
-      .daterangepicker .table-condensed th select {
-        border: 1px solid #ccc;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        font-size: 14px;
-        padding: 5px;
-        outline: none;
-      }
-
-      /* ==========================================================================
-   #FORM
-   ========================================================================== */
-      input {
-        outline: none;
-        margin: 0;
-        border: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
-        width: 100%;
-        font-size: 14px;
-        font-family: inherit;
-      }
-
-      .input--style-4 {
-        line-height: 50px;
-        background: #fafafa;
-        -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        padding: 0 20px;
-        font-size: 16px;
-        color: #666;
-        -webkit-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-      }
-
-      .input--style-4::-webkit-input-placeholder {
-        /* WebKit, Blink, Edge */
-        color: #666;
-      }
-
-      .input--style-4:-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 */
-        color: #666;
-        opacity: 1;
-      }
-
-      .input--style-4::-moz-placeholder {
-        /* Mozilla Firefox 19+ */
-        color: #666;
-        opacity: 1;
-      }
-
-      .input--style-4:-ms-input-placeholder {
-        /* Internet Explorer 10-11 */
-        color: #666;
-      }
-
-      .input--style-4:-ms-input-placeholder {
-        /* Microsoft Edge */
-        color: #666;
-      }
-
-      .label {
-        font-size: 16px;
-        color: #555;
-        text-transform: capitalize;
+      .header-title {
+        color: #88c724;
         display: block;
-        margin-bottom: 5px;
-      }
-
-      .radio-container {
-        display: inline-block;
-        position: relative;
-        padding-left: 30px;
-        cursor: pointer;
-        font-size: 16px;
-        color: #666;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      .radio-container input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-      }
-
-      .radio-container input:checked ~ .checkmark {
-        background-color: #e5e5e5;
-      }
-
-      .radio-container input:checked ~ .checkmark:after {
-        display: block;
-      }
-
-      .radio-container .checkmark:after {
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: 12px;
-        height: 12px;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        background: #57b846;
-      }
-
-      .checkmark {
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 0;
-        height: 20px;
-        width: 20px;
-        background-color: #e5e5e5;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-      }
-
-      .checkmark:after {
-        content: '';
-        position: absolute;
-        display: none;
-      }
-
-      .input-group {
-        position: relative;
-        margin-bottom: 22px;
-      }
-
-      .input-group-icon {
-        position: relative;
-      }
-
-      .input-icon {
-        position: absolute;
-        font-size: 18px;
-        color: #999;
-        right: 18px;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-        cursor: pointer;
-      }
-
-      /* ==========================================================================
-   #SELECT2
-   ========================================================================== */
-      .select--no-search .select2-search {
-        display: none !important;
-      }
-
-      .rs-select2 .select2-container {
-        width: 100% !important;
-        outline: none;
-        background: #fafafa;
-        -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-      }
-
-      .rs-select2 .select2-container .select2-selection--single {
-        outline: none;
-        border: none;
-        height: 50px;
-        background: transparent;
-      }
-
-      .rs-select2
-        .select2-container
-        .select2-selection--single
-        .select2-selection__rendered {
+        font-size: 48px;
+        font-weight: 600;
         line-height: 50px;
-        padding-left: 0;
-        color: #555;
-        font-size: 16px;
-        font-family: inherit;
-        padding-left: 22px;
-        padding-right: 50px;
+        text-transform: uppercase;
       }
-
-      .rs-select2
-        .select2-container
-        .select2-selection--single
-        .select2-selection__arrow {
-        height: 50px;
-        right: 20px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -moz-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -moz-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+      .header-motto {
+        color: #88c724;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
       }
-
-      .rs-select2
-        .select2-container
-        .select2-selection--single
-        .select2-selection__arrow
-        b {
-        display: none;
-      }
-
-      .rs-select2
-        .select2-container
-        .select2-selection--single
-        .select2-selection__arrow:after {
-        font-family: 'Material-Design-Iconic-Font';
-        font-size: 24px;
-        color: #999;
-        -webkit-transition: all 0.4s ease;
-        -o-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-      }
-
-      .rs-select2
-        .select2-container.select2-container--open
-        .select2-selection--single
-        .select2-selection__arrow::after {
-        -webkit-transform: rotate(-180deg);
-        -moz-transform: rotate(-180deg);
-        -ms-transform: rotate(-180deg);
-        -o-transform: rotate(-180deg);
-        transform: rotate(-180deg);
-      }
-
-      .select2-container--open .select2-dropdown--below {
-        border: none;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        border: 1px solid #e0e0e0;
-        margin-top: 5px;
+      .form-block {
+        background: #f9f9f9 none repeat scroll 0 0;
+        border-radius: 1px;
+        box-shadow: 2px 3px 8px #a7a7a7;
+        color: gray;
+        display: block;
+        min-height: 460px;
         overflow: hidden;
+        padding: 30px;
+        margin-bottom: 20px;
       }
-
-      .select2-container--default .select2-results__option {
-        padding-left: 22px;
-      }
-
-      /* ==========================================================================
-   #TITLE
-   ========================================================================== */
-      .title {
+      .form-block h2 {
+        border-bottom: 1px solid #88c724;
+        color: #88c724;
+        display: block;
         font-size: 24px;
-        color: #525252;
-        font-weight: 400;
-        margin-bottom: 40px;
+        font-weight: 300;
+        line-height: 28px;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
       }
-
-      .card {
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        background: #fff;
+      .form .form-control {
+        border-radius: 0;
+        color: #999;
+        height: 42px;
       }
-
-      .card-4 {
-        background: #fff;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+      .form-control:focus {
+        border-color: #88c724;
+        box-shadow: none;
       }
-
-      .card-4 .card-body {
-        padding: 57px 65px;
-        padding-bottom: 65px;
-      }
-
-      @media (max-width: 767px) {
-        .card-4 .card-body {
-          padding: 50px 40px;
-        }
+      .custom-btn:hover,
+      .custom-btn {
+        background-color: #88c724;
+        border-color: #88c724;
+        color: #fff;
+        font-size: 20px;
+        height: 40px;
+        width: 100%;
+        font-weight: 500;
       }
     `,
   ],
