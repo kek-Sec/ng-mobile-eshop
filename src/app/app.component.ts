@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
+  public static logged_in:boolean = false;
 }
 
 /**

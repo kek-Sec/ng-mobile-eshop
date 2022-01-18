@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 /**
  * Login page component.
@@ -41,7 +42,7 @@ import { Component, OnInit } from '@angular/core';
                   name="pwd"
                 />
               </div>
-              <button type="submit" class="btn btn-default custom-btn">
+              <button  (click)="openModal(template)" type="submit" class="btn btn-default custom-btn">
                 Submit
               </button>
             </form>
@@ -49,6 +50,18 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
     </div>
+
+    <ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   {{user | json}}
+  </div>
+</ng-template>
   `,
   styles: [
     `
@@ -112,8 +125,12 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  modalRef?: BsModalRef;
+  constructor(private modalService: BsModalService) { }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
   ngOnInit(): void {}
 
   //create user model
@@ -127,15 +144,6 @@ export class LoginComponent implements OnInit {
    * calls the /api/v1/login endpoint with the user model as body
    */
   login() {
-    //call the login endpoint
-    // .post(`/api/v1/login`, this.user)
-    // .subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+   
   }
 }

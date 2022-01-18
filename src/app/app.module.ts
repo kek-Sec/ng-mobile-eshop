@@ -15,6 +15,7 @@ import { StoreComponent } from './views/store/store.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FooterComponent,
     ContactComponent,
     OrdersComponent,
-    StoreComponent
+    StoreComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
