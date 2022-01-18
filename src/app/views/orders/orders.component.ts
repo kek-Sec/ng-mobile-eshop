@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-orders',
@@ -15,9 +16,9 @@ import { Component, OnInit } from '@angular/core';
       <tbody>
         <ng-container *ngFor="let order of orders">
           <tr>
-            <td class="col-xs-3">{{ order.orderID }}</td>
-            <td class="col-xs-3">{{ order.userID }}</td>
-            <td class="col-xs-3">{{ order.productID }}</td>
+            <td class="col-xs-3">{{ order.order_id }}</td>
+            <td class="col-xs-3">{{ order.user_id }}</td>
+            <td class="col-xs-3">{{ order.product_id }}</td>
             <td class="col-xs-6">{{ order.date }}</td>
           </tr>
         </ng-container>
@@ -32,40 +33,30 @@ export class OrdersComponent implements OnInit {
   //orderID, productID, userID, date.
 
   //create foo data
-  orders = [
-    {
-      orderID: 1,
-      productID: 1,
-      userID: 1,
-      date: '2020-01-01',
-    },
-    {
-      orderID: 2,
-      productID: 2,
-      userID: 2,
-      date: '2020-01-02',
-    },
-    {
-      orderID: 3,
-      productID: 3,
-      userID: 3,
-      date: '2020-01-03',
-    },
-    {
-      orderID: 4,
-      productID: 4,
-      userID: 4,
-      date: '2020-01-04',
-    },
-    {
-      orderID: 5,
-      productID: 5,
-      userID: 5,
-      date: '2020-01-05',
-    },
-  ];
+  orders:any;
 
-  constructor() {}
+  constructor(private http:HttpClient,private cdr:ChangeDetectorRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getOrders();
+  }
+
+  /**
+   * @summary - function to get orders from API
+   * @callback localhost:8080/api/v1/order/
+   * 
+   */
+  getOrders() {
+    this.http.get('http://localhost:8080/api/v1/order/').subscribe(
+      (data) => {
+        this.orders = data;
+        this.cdr.markForCheck();
+        this.cdr.detectChanges();
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
