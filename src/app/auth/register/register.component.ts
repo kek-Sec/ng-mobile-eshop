@@ -4,7 +4,10 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-register',
   template: `
     <section clas="main-container">
-      <div style="display:flex; justify-content:center;margin-top:5vh" class="row">
+      <div
+        style="display:flex; justify-content:center;margin-top:5vh"
+        class="row"
+      >
         <div class="col-md-7">
           <div class="form-block">
             <h2>Register</h2>
@@ -12,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
               <form action="/action_page.php">
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.firstName"
                     style="margin-bottom: 0.5vh;"
                     type="text"
                     class="form-control"
@@ -22,6 +26,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.lastName"
                     style="margin-bottom: 0.5vh;"
                     type="text"
                     class="form-control"
@@ -32,6 +37,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.email"
                     style="margin-bottom: 0.5vh;"
                     type="email"
                     class="form-control"
@@ -42,6 +48,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.password"
                     style="margin-bottom: 0.5vh;"
                     type="password"
                     class="form-control"
@@ -52,6 +59,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.repeatPassword"
                     style="margin-bottom: 0.5vh;"
                     type="password"
                     class="form-control"
@@ -62,6 +70,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.address"
                     style="margin-bottom: 0.5vh;"
                     type="text"
                     class="form-control"
@@ -72,6 +81,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.address"
                     style="margin-bottom: 0.5vh;"
                     type="text"
                     class="form-control"
@@ -82,6 +92,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.postalCode"
                     style="margin-bottom: 0.5vh;"
                     type="text"
                     class="form-control"
@@ -92,6 +103,7 @@ import { Component, OnInit } from '@angular/core';
                 </div>
                 <div class="form-group">
                   <input
+                    [(ngModel)]="user.mobilePhone"
                     style="margin-bottom: 1vh;"
                     type="text"
                     class="form-control"
@@ -177,4 +189,17 @@ export class RegisterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  //the user model
+  user = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    repeatPassword: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    mobilePhone: '',
+  };
 }
