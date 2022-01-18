@@ -121,4 +121,21 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   }
+
+  /**
+   * Login function.
+   * calls the /api/v1/login endpoint with the user model as body
+   */
+  login() {
+    //call the login endpoint
+    // .post(`/api/v1/login`, this.user)
+    // .subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+  }
 }
