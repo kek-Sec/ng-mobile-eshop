@@ -12,6 +12,7 @@ import { FooterComponent } from './nav/footer/footer.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { StoreComponent } from './views/store/store.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { StoreComponent } from './views/store/store.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
