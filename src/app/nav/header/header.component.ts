@@ -32,6 +32,9 @@ import { AppComponent } from 'src/app/app.component';
           <li class="nav-item">
             <a class="nav-link" routerLink="contact" href="#">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="admin" href="#">Admin</a>
+          </li>
           <li *ngIf="logged_in" class="nav-item">
             <a class="nav-link" (click)="logout()" href="#">Log out</a>
           </li>
