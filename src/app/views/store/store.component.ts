@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-store',
@@ -14,8 +15,8 @@ import { Component, OnInit } from '@angular/core';
           <div style="color:#88c724" class="carousel-caption d-none d-md-block">
             <h3>Model: {{ product.model }}</h3>
             <p>
-              Price: {{ product.price }} | RAM: {{ product.RAM }} | CPU:
-              {{ product.CPU }}
+              Price: {{ product.price }} | RAM: {{ product.ram }} | CPU:
+              {{ product.cpu }}
             </p>
           </div>
         </slide>
@@ -30,49 +31,33 @@ export class StoreComponent implements OnInit {
   //productid, price, quantity, photoURL, model (π.χ. Xiaomi Mi11), screenSize, CPU, RAM,camera, battery, SAR
 
   //create foo data
-  products = [
-    {
-      productID: 1,
-      price: 100,
-      quantity: 10,
-      photoURL: 'https://via.placeholder.com/500.png',
-      model: 'Xiaomi Mi11',
-      screenSize: '6.3',
-      CPU: 'Snapdragon 865',
-      RAM: '6GB',
-      camera: '12MP',
-      battery: '4000mAh',
-      SAR: '5.5',
-    },
-    {
-      productID: 2,
-      price: 200,
-      quantity: 20,
-      photoURL: 'https://via.placeholder.com/500.png',
-      model: 'Samsung S10',
-      screenSize: '6.3',
-      CPU: 'Snapdragon 865',
-      RAM: '6GB',
-      camera: '12MP',
-      battery: '4000mAh',
-      SAR: '5.5',
-    },
-    {
-      productID: 3,
-      price: 300,
-      quantity: 30,
-      photoURL: 'https://via.placeholder.com/500.png',
-      model: 'Xiaomi Mi11',
-      screenSize: '6.3',
-      CPU: 'Snapdragon 865',
-      RAM: '6GB',
-      camera: '12MP',
-      battery: '4000mAh',
-      SAR: '5.5',
-    },
-  ];
+  products:any;
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(
+    private http:HttpClient, //http client for interacting with the API
+    private cdr:ChangeDetectorRef //to refresh view
+    ) {
+
+  }
+
+  ngOnInit(): void {
+    this.getMobilePhones();
+  }
+  /**
+   * @summary - Function to get mobile phones from API 
+   * @callback localhost:8080/api/v1/mobilePhone/
+   */
+  getMobilePhones() {
+    this.http.get('http://localhost:8080/api/v1/mobilePhone/').subscribe(
+      (data) => {
+        this.products = data;
+        this.cdr.markForCheck();
+        this.cdr.detectChanges();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

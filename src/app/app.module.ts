@@ -13,6 +13,7 @@ import { ContactComponent } from './views/contact/contact.component';
 import { OrdersComponent } from './views/orders/orders.component';
 import { StoreComponent } from './views/store/store.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
